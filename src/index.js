@@ -15,7 +15,13 @@ import { Docs } from './assets/Docs';
 import { Message } from './assets/Message';
 import { Book } from './assets/Book';
 import { Smile } from './assets/Smile';
-import "./index.scss";
+import { Wallet } from './assets/Wallet';
+import { ArrowUp } from './assets/ArrowUp';
+import { ArrowDown } from './assets/ArrowDown';
+import { Governance } from './assets/Governance';
+import { Help } from './assets/Help';
+import { Feedback } from './assets/Feedback';
+import './index.scss';
 
 // eslint-disable-next-line react/prop-types
 const AddressBlock = ({ address = '', logout }) => {
@@ -27,21 +33,21 @@ const AddressBlock = ({ address = '', logout }) => {
   };
 
   return (
-    <div className="address-block">
-      <div className="address-block__metamask-icon">
+    <div className='address-block'>
+      <div className='address-block__metamask-icon'>
         <Metamask />
       </div>
       <span>{`${address.slice(0, 4)}...${address.slice(
         address.length - 4,
-        address.length,
+        address.length
       )}`}</span>
-      <button onClick={logout} type="button" style={{ marginLeft: 'auto' }}>
+      <button onClick={logout} type='button' style={{ marginLeft: 'auto' }}>
         <Logout />
       </button>
       <button
         onClick={copyToClipboard}
-        type="button"
-        className="address-block__copy"
+        type='button'
+        className='address-block__copy'
       >
         <Copy />
       </button>
@@ -50,7 +56,14 @@ const AddressBlock = ({ address = '', logout }) => {
 };
 
 const Header = ({ address, login, logout, initHidden, customLogo }) => {
-  const [isOpen, setIsOpen] = useState(initHidden ? false : window.innerWidth > 1050);
+  const [isResourcesShow, setIsResourcesShow] = useState(true);
+  const [isAboutShow, setIsAboutShow] = useState(true);
+
+  const [isOpen, setIsOpen] = useState(
+    // initHidden ? false : window.innerWidth > 1050
+    true
+  );
+
   const [overlayVisible, setOverlayVisible] = useState(false);
 
   useEffect(() => {
@@ -63,7 +76,7 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
   const handleOpen = () => {
     setOverlayVisible(!isOpen && window.innerWidth < 1050);
     setIsOpen((state) => !state);
-  }
+  };
 
   const { pathname } = window.location;
   let currentApp = '';
@@ -80,134 +93,197 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
 
   return (
     <>
-      {overlayVisible && <div onClick={handleOpen} className="menu-overlay" />}
-      <div className={`side-menu${isOpen ? ' side-menu_expanded' : ''}`}>
-        <div className="side-menu__mobile-wrapper">
-          <div className="side-menu__logo">
-            <a href="https://airdao.io/">
-              {customLogo || <Logo />}
-            </a>
-          </div>
-          <button
-            type="button"
-            onClick={handleOpen}
-            className="side-menu__hamburger"
-          >
-            {isOpen ? <Close /> : <Menu/>}
-          </button>
-        </div>
-        {isOpen && (
-          <>
-            <div className="side-menu__content">
-              {address ? (
-                <AddressBlock address={address} logout={logout} />
-              ) : (
-                <button
-                  type="button"
-                  className="side-menu__connect-wallet"
-                  onClick={login}
-                >
-                  Connect wallet
-                </button>
-              )}
-              <ul className="side-menu__list">
-                <li>
-                  <a
-                    className="side-menu__list-link"
-                    style={currentApp === 'swap' ? { color: '#457EFF' } : {}}
-                    href="/firepot/swap"
-                  >
-                    FirepotSwap
-                    <Question />
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="side-menu__list-link"
-                    href="/staking"
-                    style={currentApp === 'staking' ? { color: '#457EFF' } : {}}
-                  >
-
-                    Staking
-                    <Question />
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="side-menu__list-link"
-                    href="/bridge"
-                    style={currentApp === 'bridge' ? { color: '#457EFF' } : {}}
-                  >
-                    Bridge
-                    <Question />
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="side-menu__list-link"
-                    href="/explorer"
-                    style={currentApp === 'explorer' ? { color: '#457EFF' } : {}}
-                  >
-                    Network Explorer
-                    <Question />
-                  </a>
-                </li>
-                <li className="side-menu__list-vote">
-                  <span>DAO Tools</span>
-                  <span>Coming Soon</span>
-                </li>
-                <li className="side-menu__list-vote">
-                  <span>Stablecoin</span>
-                  <span>Coming Soon</span>
-                </li>
-              </ul>
-              <ul className="side-menu__list side-menu__list_small">
-                <li>
-                  <House />
-                  <a href="/">AIRDAO Main</a>
-                </li>
-                <li>
-                  <Docs />
-                  <a href="https://github.com/ambrosus/" target="_blank">Docs</a>
-                </li>
-                <li>
-                  <Message />
-                  <a href="mailto:support@airdao.io ">Feedback</a>
-                </li>
-                <li>
-                  <Book />
-                  <a href="https://drive.google.com/drive/folders/1oaihzknRMGLKlmTe-7HU5Vx6I_-sQay1?usp=sharing" target="_blank">Brand materials</a>
-                </li>
-                <li>
-                  <Smile />
-                  <a href="mailto:support@airdao.io ">Team</a>
-                </li>
-              </ul>
-              <ul className="side-menu__list side-menu__list_socials">
-                <li>
-                  <a href="https://twitter.com/airdao_io" target="_blank">
-                    <Twitter />
-                  </a>
-                </li>
-                <li>
-                  <a href="/">
-                    <Telegram />
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.reddit.com/r/AirDAO/" target="_blank">
-                    <Reddit />
-                  </a>
-                </li>
-                <li>
-                  <a href="/">
-                    <Circles />
-                  </a>
-                </li>
-              </ul>
+      {overlayVisible && <div onClick={handleOpen} className='menu-overlay' />}
+      <div className='side-menu-container'>
+        <div className={`side-menu${isOpen ? ' side-menu_expanded' : ''}`}>
+          <div className='side-menu__mobile-wrapper'>
+            <div className='side-menu__logo'>
+              <a href='https://airdao.io/'>{customLogo || <Logo />}</a>
             </div>
-          </>
-        )}
+            <button
+              type='button'
+              onClick={handleOpen}
+              className='side-menu__hamburger'
+            >
+              {isOpen ? <Close /> : <Menu />}
+            </button>
+          </div>
+          {isOpen && (
+            <>
+              <div className='side-menu__content'>
+                {address ? (
+                  <AddressBlock address={address} logout={logout} />
+                ) : (
+                  <button
+                    type='button'
+                    className='side-menu__connect-wallet'
+                    onClick={login}
+                  >
+                    <Wallet />
+                    Connect wallet
+                  </button>
+                )}
+                <div className='side-menu__content-list'>
+                  <ul className='side-menu__list'>
+                    <li>
+                      <a
+                        className='side-menu__list-link'
+                        style={
+                          currentApp === 'swap' ? { color: '#457EFF' } : {}
+                        }
+                        href='/firepot/swap'
+                      >
+                        FirepotSwap
+                        <Question />
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className='side-menu__list-link'
+                        href='/staking'
+                        style={
+                          currentApp === 'staking' ? { color: '#457EFF' } : {}
+                        }
+                      >
+                        Staking
+                        <Question />
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className='side-menu__list-link'
+                        href='/bridge'
+                        style={
+                          currentApp === 'bridge' ? { color: '#457EFF' } : {}
+                        }
+                      >
+                        Bridge
+                        <Question />
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className='side-menu__list-link'
+                        href='/explorer'
+                        style={
+                          currentApp === 'explorer' ? { color: '#457EFF' } : {}
+                        }
+                      >
+                        Network Explorer
+                        <Question />
+                      </a>
+                    </li>
+                    <li className='side-menu__list-vote'>
+                      <span>DAO Tools</span>
+                      <span>Coming Soon</span>
+                    </li>
+                    <li className='side-menu__list-vote'>
+                      <span>Stablecoin</span>
+                      <span>Coming Soon</span>
+                    </li>
+                  </ul>
+                </div>
+                <div className='side-menu__listmenu'>
+                  <div className='side-menu__listmenu-wrapper'>
+                    <div className='side-menu__listmenu-text'>Resources</div>
+                    <button
+                      className='side-menu__listmenu-btn'
+                      onClick={() => setIsResourcesShow((prev) => !prev)}
+                    >
+                      {isResourcesShow ? <ArrowDown /> : <ArrowUp />}
+                    </button>
+                  </div>
+
+                  <ul
+                    className='side-menu__list side-menu__list_small'
+                    style={{ display: isResourcesShow ? '' : 'none' }}
+                  >
+                    <li>
+                      <Docs />
+                      <a href='https://github.com/ambrosus/' target='_blank'>
+                        Docs
+                      </a>
+                    </li>
+                    <li>
+                      <Feedback />
+                      <a href='https://docs.google.com/forms/d/e/1FAIpQLSfiCP9jjnhc5LsNiSribluQWoqEI7cVOdgomTVyNas8-yXezw/formrestricted'>
+                        Feedback & Bug Reports
+                      </a>
+                    </li>
+                    <li>
+                      <Governance />
+                      <a href='https://gov.ambrosus.io/' target='_blank'>
+                        Governance
+                      </a>
+                    </li>
+                    <li>
+                      <Help />
+                      <a
+                        href='https://air-dao.notion.site/AirDAO-Help-82424c667aee4dac96ac73598423c7f8'
+                        target='_blank'
+                      >
+                        Help
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className='side-menu__listmenu'>
+                  <div className='side-menu__listmenu-wrapper'>
+                    <div className='side-menu__listmenu-text'>About</div>
+                    <button
+                      className='side-menu__listmenu-btn'
+                      onClick={() => setIsAboutShow((prev) => !prev)}
+                    >
+                      {isAboutShow ? <ArrowDown /> : <ArrowUp />}
+                    </button>
+                  </div>
+                  <ul
+                    className='side-menu__list side-menu__list_small'
+                    style={{ display: isAboutShow ? '' : 'none' }}
+                  >
+                    <li className='side-menu__list-item'>
+                      <House />
+                      <a href='/'>AirDAO Home</a>
+                    </li>
+
+                    <li>
+                      <Smile />
+                      <a href='mailto:support@airdao.io '>Team</a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <ul className=' side-menu__list_socials'>
+                    <li>
+                      <a href='https://twitter.com/airdao_io' target='_blank'>
+                        <Twitter />
+                      </a>
+                    </li>
+                    <li>
+                      <a href='/'>
+                        <Telegram />
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href='https://www.reddit.com/r/AirDAO/'
+                        target='_blank'
+                      >
+                        <Reddit />
+                      </a>
+                    </li>
+                    <li>
+                      <a href='/'>
+                        <Circles />
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </>
+          )}
+        </div>
       </div>
     </>
   );

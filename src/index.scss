@@ -10,63 +10,85 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #A8B7DA82;
+  background: #a8b7da82;
   border-radius: 5px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #A8B7DA82;
+  background: #a8b7da82;
 }
+
+.side-menu-container {
+  position: absolute;
+  padding: 16px 0;
+  height: fit-content;
+
+  width: 320px;
+  z-index: 1000;
+  @media only screen and (max-width: 720px) {
+    padding: 0;
+  }
+}
+
 .side-menu {
-  position: fixed;
+  position: relative;
   display: flex;
   flex-direction: column;
-  padding: 32px 34px 32px 13px;
+  padding: 16px 24px 16px 24px;
+
   width: 320px;
   z-index: 999999;
-  border-radius: 0 18px 18px 0;
-  background: #EEEEEE;
-  box-shadow: 66px 0px 27px rgba(71, 117, 224, 0.01), 37px 0px 22px rgba(71, 117, 224, 0.05), 17px 0px 17px rgba(71, 117, 224, 0.09), 4px 0px 9px rgba(71, 117, 224, 0.1), 0px 0px 0px rgba(71, 117, 224, 0.1);
+
+  background: #ffffff;
+  box-shadow: 0px 8px 32px rgba(105, 142, 226, 0.24);
+  border-radius: 8px;
   font-family: Inter, sans-serif;
   box-sizing: border-box;
-  padding-top: 0;
-  padding-bottom: 0;
-  height: 60px;
-  transition: .3s;
+  height: 64px;
+  transition: 0.3s;
   padding-right: 14px;
   overflow: hidden;
 
   &_expanded {
-    height: 100vh!important;
+    height: 100% !important;
+    width: 100%;
   }
 
   @media only screen and (max-width: 720px) {
     width: 100%;
     border-radius: 0;
     padding: 0;
-    box-shadow: 0px 61px 24px rgba(76, 121, 225, 0.01), 0px 34px 21px rgba(76, 121, 225, 0.05), 0px 15px 15px rgba(76, 121, 225, 0.09), 0px 4px 8px rgba(76, 121, 225, 0.1), 0px 0px 0px rgba(76, 121, 225, 0.1);
+    box-shadow: 0px 61px 24px rgba(76, 121, 225, 0.01),
+      0px 34px 21px rgba(76, 121, 225, 0.05),
+      0px 15px 15px rgba(76, 121, 225, 0.09),
+      0px 4px 8px rgba(76, 121, 225, 0.1), 0px 0px 0px rgba(76, 121, 225, 0.1);
   }
 
-  p, span, button, a {
+  p,
+  span,
+  button,
+  a {
     font-family: Inter, sans-serif;
     font-weight: 300;
     line-height: 140%;
-    color: #1D1D1D;
+    color: #1d1d1d;
   }
 }
 
 .side-menu__mobile-wrapper {
   display: flex;
   align-items: center;
-
+  width: 272px;
+  height: 32px;
   @media only screen and (max-width: 720px) {
     padding: 0 24px;
   }
 }
 
 .side-menu__logo {
-  width: 140px;
+  height: 32px;
+  width: auto;
 
   svg {
     width: 100%;
@@ -74,19 +96,32 @@
 }
 
 .side-menu__connect-wallet {
-  margin-top: 30px;
-  background: linear-gradient(135deg, #D5DFF3 0%, #CBD5E9 100%);
-  border: 1px solid rgba(69, 126, 255, 0.3);
-  color: #3568DD!important;
+  display: flex;
+
+  margin: 50px 0 28px;
+  column-gap: 8px;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(69, 126, 255, 0.07);
+  /* BRAND BLUE */
+
+  border: 1.5px solid #457eff;
+  border-radius: 16px;
+
+  color: #3568dd !important;
   width: 100%;
   padding: 0 18px;
   height: 58px;
-  border-radius: 15px;
+
   font-size: 20px;
   font-weight: 400;
 }
 
 .side-menu__content {
+  display: flex;
+  flex-direction: column;
+  width: 272px;
   @media only screen and (max-width: 720px) {
     padding: 0 13px;
   }
@@ -101,13 +136,18 @@
   display: block;
 }
 
+.side-menu__content-list {
+  margin: 24px 0 28px 0;
+}
 .side-menu__list {
-  margin-top: 24px;
-  padding-left: 11px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+  padding-left: 0px;
   list-style: none;
-
+  margin: 0;
   a {
-    color: #0E0E0E;
+    color: #0e0e0e;
     text-decoration: none;
     font-family: Inter, sans-serif;
     display: flex;
@@ -116,7 +156,14 @@
   }
 
   li {
-    margin-bottom: 18px;
+    height: 24px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+
+    color: #1d1d1d;
   }
 
   svg {
@@ -127,7 +174,10 @@
 
   &_socials {
     display: flex;
-    margin: 40px 0;
+    margin-top: 68px;
+    margin-bottom: 4px;
+    padding-left: 0px;
+    list-style: none;
 
     li {
       margin: 0 32px 0 0;
@@ -135,23 +185,56 @@
   }
 
   &_small li {
-    margin-bottom: 16px;
+    display: flex;
+    column-gap: 10px;
+  }
+  &_small a {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 24px;
+    font-family: 'Inter';
+    font-weight: 400;
+    color: #1d1d1d;
+  }
+}
+
+.side-menu__listmenu {
+  display: flex;
+  flex-direction: column;
+  margin-top: 24px;
+  row-gap: 16px;
+  &-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &-text {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #1d1d1d;
+  }
+  &-btn {
+    cursor: pointer;
+    background-color: #fff;
+    border: 0;
   }
 }
 
 .side-menu__blue {
-  color: #3568DD;
+  color: #3568dd;
 
   b {
-    color: #3568DD;
+    color: #3568dd;
   }
 }
 
 .side-menu__list-link {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-
+  height: 24px;
   svg {
     display: none;
     position: absolute;
@@ -166,9 +249,10 @@
 .side-menu__list-vote {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
   span {
-    color: #a2a2a2;
+    color: #a2b2d8;
 
     &:last-child {
       display: none;
@@ -176,8 +260,8 @@
       padding: 4px 8px;
       margin-left: 8px;
       border-radius: 4px;
-      border: 1px solid #a2a2a2;
-      position: absolute;
+      border: 1px solid #a2b2d8;
+      // position: absolute;
       left: 110px;
     }
   }
@@ -197,7 +281,7 @@
   margin-left: auto;
   margin-bottom: 0;
   margin-right: 7px;
-  border: 2px solid #0E0E0E;
+  border: 2px solid #0e0e0e;
 
   &_connected {
     border: 0;
@@ -213,12 +297,13 @@
   border: 0;
   margin-left: auto;
   cursor: pointer;
+  background: #fff;
 }
 
 .side-menu__address-block-title {
   font-size: 14px;
   padding-left: 11px;
-  color: #457EFFA6;
+  color: #457effa6;
   display: block;
   margin-top: 33px;
 
@@ -228,7 +313,7 @@
 }
 
 .address-block {
-  background: #457EFF12;
+  background: #457eff12;
   padding: 17px 0px 17px 22px;
   display: flex;
   align-items: center;
@@ -276,7 +361,7 @@
 }
 
 .side-menu__list_small {
-  margin-top: 45px;
+  // margin-top: 45px;
 
   li {
     display: flex;
@@ -292,7 +377,7 @@
   position: fixed;
   width: 100%;
   height: 100vh;
-  background: #457EFF;
+  background: #457eff;
   opacity: 0.5;
   z-index: 999;
 }
