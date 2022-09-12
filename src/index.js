@@ -49,7 +49,7 @@ const AddressBlock = ({ address = '', logout }) => {
   );
 };
 
-const Header = ({ address, login, logout, initHidden }) => {
+const Header = ({ address, login, logout, initHidden, customLogo }) => {
   const [isOpen, setIsOpen] = useState(initHidden ? false : window.innerWidth > 1050);
   const [overlayVisible, setOverlayVisible] = useState(false);
 
@@ -85,7 +85,7 @@ const Header = ({ address, login, logout, initHidden }) => {
         <div className="side-menu__mobile-wrapper">
           <div className="side-menu__logo">
             <a href="https://airdao.io/">
-              <Logo />
+              {customLogo || <Logo />}
             </a>
           </div>
           <button
