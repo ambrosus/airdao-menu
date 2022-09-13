@@ -60,8 +60,7 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
   const [isAboutShow, setIsAboutShow] = useState(true);
 
   const [isOpen, setIsOpen] = useState(
-    // initHidden ? false : window.innerWidth > 1050
-    true
+    initHidden ? false : window.innerWidth > 1050
   );
 
   const [overlayVisible, setOverlayVisible] = useState(false);
