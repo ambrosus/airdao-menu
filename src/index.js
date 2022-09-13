@@ -251,7 +251,12 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
 
                     <li>
                       <Smile />
-                      <a href='mailto:support@airdao.io '>Team</a>
+                      <a
+                        href='https://air-dao.notion.site/AirDAO-Team-eb62c2a89c8d491baf7463916853db62'
+                        target='_blank'
+                      >
+                        Team
+                      </a>
                     </li>
                   </ul>
                 </div>
