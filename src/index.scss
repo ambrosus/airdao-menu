@@ -28,7 +28,7 @@
 .side-menu-container {
   position: fixed;
   padding: 16px 0;
-  height: fit-content;
+  height: 100vh;
 
   width: 320px;
   z-index: 1000;
@@ -96,7 +96,6 @@
   width: auto;
 
   svg {
-    width: 100%;
   }
 }
 
@@ -126,7 +125,6 @@
 .side-menu__content {
   display: flex;
   flex-direction: column;
-  width: 272px;
   padding: 0 !important;
 }
 
