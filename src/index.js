@@ -184,15 +184,15 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
                   </ul>
                 </div>
                 <div className='side-menu__listmenu'>
-                  <div className='side-menu__listmenu-wrapper'>
+                  <button
+                    className='side-menu__listmenu-wrapper side-menu__listmenu-btn'
+                    onClick={() => setIsResourcesShow((prev) => !prev)}
+                  >
                     <div className='side-menu__listmenu-text'>Resources</div>
-                    <button
-                      className='side-menu__listmenu-btn'
-                      onClick={() => setIsResourcesShow((prev) => !prev)}
-                    >
+                    <div className='side-menu__listmenu-btn'>
                       {isResourcesShow ? <ArrowDown /> : <ArrowUp />}
-                    </button>
-                  </div>
+                    </div>
+                  </button>
 
                   <ul
                     className='side-menu__list side-menu__list_small'
@@ -206,7 +206,10 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
                     </li>
                     <li>
                       <Feedback />
-                      <a href='https://docs.google.com/forms/d/e/1FAIpQLSfiCP9jjnhc5LsNiSribluQWoqEI7cVOdgomTVyNas8-yXezw/formrestricted'>
+                      <a
+                        href='https://docs.google.com/forms/d/e/1FAIpQLSfiCP9jjnhc5LsNiSribluQWoqEI7cVOdgomTVyNas8-yXezw/formrestricted'
+                        target='_blank'
+                      >
                         Feedback & Bug Reports
                       </a>
                     </li>
@@ -229,15 +232,15 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
                 </div>
 
                 <div className='side-menu__listmenu'>
-                  <div className='side-menu__listmenu-wrapper'>
+                  <button
+                    className='side-menu__listmenu-wrapper side-menu__listmenu-btn'
+                    onClick={() => setIsAboutShow((prev) => !prev)}
+                  >
                     <div className='side-menu__listmenu-text'>About</div>
-                    <button
-                      className='side-menu__listmenu-btn'
-                      onClick={() => setIsAboutShow((prev) => !prev)}
-                    >
+                    <div className='side-menu__listmenu-btn'>
                       {isAboutShow ? <ArrowDown /> : <ArrowUp />}
-                    </button>
-                  </div>
+                    </div>
+                  </button>
                   <ul
                     className='side-menu__list side-menu__list_small'
                     style={{ display: isAboutShow ? '' : 'none' }}
