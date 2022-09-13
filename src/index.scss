@@ -54,7 +54,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 16px 24px 16px 24px;
+  padding: 16px 24px 24px 24px;
 
   width: 100%;
   z-index: 999999;
@@ -74,7 +74,7 @@
     height: fit-content !important;
     width: 100%;
     overflow-y: scroll;
-    @media only screen and (max-width: 414px) {
+    @media only screen and (max-width: 720px) {
       max-height: 100vh;
     }
   }
@@ -188,12 +188,25 @@
   &_socials {
     display: flex;
     margin-top: 35px;
-    margin-bottom: 4px;
     padding-left: 0px;
     list-style: none;
+    &-item {
+      &:hover {
+        svg {
+          path {
+            stroke: #457eff;
+          }
+        }
+      }
+    }
 
     li {
       margin: 0 32px 0 0;
+    }
+    &-icon {
+      &:hover {
+        color: #457eff;
+      }
     }
   }
 

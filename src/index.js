@@ -263,26 +263,31 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
                 <div>
                   <ul className=' side-menu__list_socials'>
                     <li>
-                      <a href='https://twitter.com/airdao_io' target='_blank'>
-                        <Twitter />
+                      <a
+                        href='https://twitter.com/airdao_io'
+                        target='_blank'
+                        className='side-menu__list_socials-item'
+                      >
+                        <Twitter className='side-menu__list_socials-icon' />
                       </a>
                     </li>
                     <li>
-                      <a href='/'>
-                        <Telegram />
+                      <a href='/' className='side-menu__list_socials-item'>
+                        <Telegram className='side-menu__list_socials-icon' />
                       </a>
                     </li>
                     <li>
                       <a
                         href='https://www.reddit.com/r/AirDAO/'
                         target='_blank'
+                        className='side-menu__list_socials-item'
                       >
-                        <Reddit />
+                        <Reddit className='side-menu__list_socials-icon' />
                       </a>
                     </li>
                     <li>
-                      <a href='/'>
-                        <Circles />
+                      <a href='/' className='side-menu__list_socials-item'>
+                        <Circles className='side-menu__list_socials-icon' />
                       </a>
                     </li>
                   </ul>
