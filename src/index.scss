@@ -42,12 +42,11 @@
 
   width: 320px;
   z-index: 1000;
-  @media only screen and (max-width: 720px) {
-    padding: 0;
-  }
-
   @media only screen and (max-width: 414px) {
     width: 100%;
+  }
+  @media only screen and (max-width: 720px) {
+    padding: 0;
   }
 }
 
@@ -57,7 +56,7 @@
   flex-direction: column;
   padding: 16px 24px 16px 24px;
 
-  width: 320px;
+  width: 100%;
   z-index: 999999;
 
   background: #ffffff;
@@ -71,10 +70,13 @@
   overflow: hidden;
 
   &_expanded {
-    max-height: calc(100vh - 32px) !important;
+    max-height: calc(100vh - 32px);
     height: fit-content !important;
     width: 100%;
     overflow-y: scroll;
+    @media only screen and (max-width: 414px) {
+      max-height: 100vh;
+    }
   }
 
   p,
