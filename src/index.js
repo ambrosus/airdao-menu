@@ -185,12 +185,12 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
                 </div>
                 <div className='side-menu__listmenu'>
                   <button
-                    className='side-menu__listmenu-wrapper side-menu__listmenu-btn'
+                    className='side-menu__listmenu-wrapper '
                     onClick={() => setIsResourcesShow((prev) => !prev)}
                   >
                     <div className='side-menu__listmenu-text'>Resources</div>
                     <div className='side-menu__listmenu-btn'>
-                      {isResourcesShow ? <ArrowDown /> : <ArrowUp />}
+                      {isResourcesShow ? <ArrowUp /> : <ArrowDown />}
                     </div>
                   </button>
 
@@ -233,12 +233,12 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
 
                 <div className='side-menu__listmenu'>
                   <button
-                    className='side-menu__listmenu-wrapper side-menu__listmenu-btn'
+                    className='side-menu__listmenu-wrapper '
                     onClick={() => setIsAboutShow((prev) => !prev)}
                   >
                     <div className='side-menu__listmenu-text'>About</div>
                     <div className='side-menu__listmenu-btn'>
-                      {isAboutShow ? <ArrowDown /> : <ArrowUp />}
+                      {isAboutShow ? <ArrowUp /> : <ArrowDown />}
                     </div>
                   </button>
                   <ul
