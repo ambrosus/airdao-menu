@@ -1,3 +1,13 @@
+/* font */
+
+@font-face {
+  font-family: 'Inter-Flex';
+  src: url('/src/fonts/Inter/Inter-VariableFont_slnt\,wght.woff2')
+    format('woff2-variations');
+
+  font-weight: 1 999;
+}
+
 /* width */
 ::-webkit-scrollbar {
   width: 8px;
@@ -19,8 +29,14 @@
   background: #a8b7da82;
 }
 
+.body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .side-menu-container {
-  position: absolute;
+  position: fixed;
   padding: 16px 0;
   height: fit-content;
 
@@ -43,7 +59,7 @@
   background: #ffffff;
   box-shadow: 0px 8px 32px rgba(105, 142, 226, 0.24);
   border-radius: 8px;
-  font-family: Inter, sans-serif;
+  font-family: Inter-Flex, sans-serif;
   box-sizing: border-box;
   height: 64px;
   transition: 0.3s;
@@ -51,8 +67,10 @@
   overflow: hidden;
 
   &_expanded {
-    height: 100% !important;
+    max-height: calc(100vh - 32px) !important;
+    height: fit-content !important;
     width: 100%;
+    overflow-y: scroll;
   }
 
   @media only screen and (max-width: 720px) {
@@ -69,7 +87,7 @@
   span,
   button,
   a {
-    font-family: Inter, sans-serif;
+    font-family: Inter-Flex, sans-serif;
     font-weight: 300;
     line-height: 140%;
     color: #1d1d1d;
@@ -98,7 +116,7 @@
 .side-menu__connect-wallet {
   display: flex;
 
-  margin: 50px 0 28px;
+  margin-top: 40px;
   column-gap: 8px;
   align-items: center;
   justify-content: center;
@@ -149,7 +167,7 @@
   a {
     color: #0e0e0e;
     text-decoration: none;
-    font-family: Inter, sans-serif;
+    font-family: Inter-Flex, sans-serif;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -157,7 +175,7 @@
 
   li {
     height: 24px;
-    font-family: 'Inter';
+    font-family: 'Inter-Flex';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -174,7 +192,7 @@
 
   &_socials {
     display: flex;
-    margin-top: 68px;
+    margin-top: 35px;
     margin-bottom: 4px;
     padding-left: 0px;
     list-style: none;
@@ -192,7 +210,7 @@
     font-weight: 400;
     font-size: 12px;
     line-height: 24px;
-    font-family: 'Inter';
+    font-family: 'Inter-Flex';
     font-weight: 400;
     color: #1d1d1d;
   }
@@ -209,7 +227,7 @@
     justify-content: space-between;
   }
   &-text {
-    font-family: 'Inter';
+    font-family: 'Inter-Flex';
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
