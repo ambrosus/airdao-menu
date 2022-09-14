@@ -200,7 +200,7 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
                     <li>
                       <Docs />
                       <a href='https://github.com/ambrosus/' target='_blank'>
-                        Docs
+                        Github
                       </a>
                     </li>
                     <li>
@@ -255,7 +255,7 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
                         href='https://air-dao.notion.site/AirDAO-Team-eb62c2a89c8d491baf7463916853db62'
                         target='_blank'
                       >
-                        Team
+                        AirDAO Academy
                       </a>
                     </li>
                   </ul>
