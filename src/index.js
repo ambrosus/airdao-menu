@@ -169,7 +169,6 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
                         }
                       >
                         Network Explorer
-                        <Question />
                       </a>
                     </li>
                     <li className='side-menu__list-vote'>
