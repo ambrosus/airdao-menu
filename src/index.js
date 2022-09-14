@@ -65,7 +65,7 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
 
   const [overlayVisible, setOverlayVisible] = useState(false);
 
-  const prevOverflow = useRef(document.querySelector('html').style.overflowX);
+  // const prevOverflow = useRef(document.querySelector('html').style.overflowY);
 
   useEffect(() => {
     const handleResize = () => {
@@ -77,12 +77,14 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
   const handleOpen = () => {
     setOverlayVisible(!isOpen && window.innerWidth < 1050);
     setIsOpen((state) => !state);
-
-    const html = document.querySelector('html');
-    isOpen
-      ? (html.style.overflowX = 'hidden')
-      : (html.style.overflowX = prevOverflow);
   };
+
+  // useEffect(() => {
+  //   const html = document.querySelector('html');
+  //   isOpen
+  //     ? (html.style.overflowY = 'hidden')
+  //     : (html.style.overflowY = prevOverflow.current);
+  // }, [isOpen]);
 
   const { pathname } = window.location;
   let currentApp = '';
