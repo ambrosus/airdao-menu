@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Logo } from './assets/Logo';
 import { Twitter } from './assets/Twitter';
 import { Telegram } from './assets/Telegram';
@@ -65,6 +65,8 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
 
   const [overlayVisible, setOverlayVisible] = useState(false);
 
+  const prevOverflow = useRef(document.querySelector('html').style.overflowX);
+
   useEffect(() => {
     const handleResize = () => {
       setIsOpen(initHidden ? false : window.innerWidth > 1050);
@@ -75,6 +77,11 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
   const handleOpen = () => {
     setOverlayVisible(!isOpen && window.innerWidth < 1050);
     setIsOpen((state) => !state);
+
+    const html = document.querySelector('html');
+    isOpen
+      ? (html.style.overflowX = 'hidden')
+      : (html.style.overflowX = prevOverflow);
   };
 
   const { pathname } = window.location;
