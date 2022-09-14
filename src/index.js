@@ -252,7 +252,7 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
                     <li>
                       <Smile />
                       <a
-                        href='https://air-dao.notion.site/AirDAO-Team-eb62c2a89c8d491baf7463916853db62'
+                        href='https://air-dao.notion.site/AirDAO-Academy-2c253d49da1e4717a5e5bbab696afd45'
                         target='_blank'
                       >
                         AirDAO Academy
