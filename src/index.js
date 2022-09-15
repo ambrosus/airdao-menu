@@ -75,9 +75,8 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
 
   useEffect(() => {
     const handleResize = () => {
-      if (!isOpen) {
-        setIsOpen(initHidden ? false : window.innerWidth > 1050);
-      }
+      setIsOpen(initHidden ? false : window.innerWidth > 1050);
+      setOverlayVisible(false)
     };
     window.addEventListener('resize', handleResize, true);
   }, []);
