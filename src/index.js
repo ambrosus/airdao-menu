@@ -232,7 +232,7 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
                     </li>
                     <li>
                       <Governance />
-                      <a href='https://discussions.airdao.io/' target='_blank'>
+                      <a href='http://community.airdao.io/' target='_blank'>
                         Governance
                       </a>
                     </li>
