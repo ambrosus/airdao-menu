@@ -22,10 +22,16 @@ import { Governance } from './assets/Governance';
 import { Help } from './assets/Help';
 import { Feedback } from './assets/Feedback';
 import './index.scss';
+import {Check} from './assets/Check';
 
 // eslint-disable-next-line react/prop-types
 const AddressBlock = ({ address = '', logout }) => {
+  const [isCopied, setIsCopied] = useState(false);
+
   const copyToClipboard = () => {
+    setIsCopied(true);
+    setTimeout(() => setIsCopied(false), 1000);
+
     if (navigator && navigator.clipboard && navigator.clipboard.writeText) {
       return navigator.clipboard.writeText(address);
     }
@@ -49,7 +55,7 @@ const AddressBlock = ({ address = '', logout }) => {
         type='button'
         className='address-block__copy'
       >
-        <Copy />
+        {isCopied ? <Check /> : <Copy />}
       </button>
     </div>
   );
@@ -142,7 +148,9 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
                         href='/firepot/swap'
                       >
                         FirepotSwap
-                        <Question />
+                        <a href="https://medium.com/@firepotfinance/firepot-guide-how-to-use-firepotswap-for-the-first-time-c6a95f350e1f" target="_blank">
+                          <Question />
+                        </a>
                       </a>
                     </li>
                     <li>
@@ -166,7 +174,9 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
                         }
                       >
                         Bridge
-                        <Question />
+                        <a href="https://blog.ambrosus.io/ambrosus-guide-connecting-and-transacting-via-the-amb-bridge-89f27a60b8d2" target="_blank">
+                          <Question />
+                        </a>
                       </a>
                     </li>
                     <li>
@@ -254,7 +264,14 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
                   >
                     <li className='side-menu__list-item'>
                       <House />
-                      <a href='/'>AirDAO Home</a>
+                      <a
+                        href='/'
+                        style={
+                          currentApp === '' ? { color: '#457EFF' } : {}
+                        }
+                      >
+                        AirDAO Home
+                      </a>
                     </li>
 
                     <li>
@@ -288,7 +305,7 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
                       <a
                         href='https://www.reddit.com/r/AirDAO/'
                         target='_blank'
-                        className='side-menu__list_socials-item'
+                        className='side-menu__list_socials-item side-menu__list_socials-item--reddit'
                       >
                         <Reddit className='side-menu__list_socials-icon' />
                       </a>
