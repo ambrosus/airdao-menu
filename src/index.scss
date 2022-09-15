@@ -32,7 +32,7 @@
   margin-left: 16px;
   width: 320px;
   z-index: 1000;
-  @media only screen and (max-width: 414px) {
+  @media only screen and (max-width: 428px) {
     width: 100%;
   }
   @media only screen and (max-width: 720px) {
@@ -87,7 +87,7 @@
   justify-content: space-between;
   width: 272px;
   height: 32px;
-  @media only screen and (max-width: 414px) {
+  @media only screen and (max-width: 428px) {
     width: 100%;
   }
 }
@@ -395,4 +395,10 @@
   background: #457eff;
   opacity: 0.5;
   z-index: 999;
+}
+
+.side-menu__list_socials-icon--last {
+  &:hover path {
+    fill: #457eff;
+  }
 }

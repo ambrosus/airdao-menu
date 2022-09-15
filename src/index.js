@@ -222,7 +222,7 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
                     </li>
                     <li>
                       <Governance />
-                      <a href='https://gov.ambrosus.io/' target='_blank'>
+                      <a href='https://discussions.airdao.io/' target='_blank'>
                         Governance
                       </a>
                     </li>
@@ -280,7 +280,7 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
                       </a>
                     </li>
                     <li>
-                      <a href='/' className='side-menu__list_socials-item'>
+                      <a href='https://t.me/airDAO_official' className='side-menu__list_socials-item'>
                         <Telegram className='side-menu__list_socials-icon' />
                       </a>
                     </li>
@@ -294,8 +294,8 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
                       </a>
                     </li>
                     <li>
-                      <a href='/' className='side-menu__list_socials-item'>
-                        <Circles className='side-menu__list_socials-icon' />
+                      <a href='https://blog.airdao.io/' className='side-menu__list_socials-item'>
+                        <Circles className='side-menu__list_socials-icon--last' />
                       </a>
                     </li>
                   </ul>
