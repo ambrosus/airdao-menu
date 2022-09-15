@@ -75,7 +75,9 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsOpen(initHidden ? false : window.innerWidth > 1050);
+      if (!isOpen) {
+        setIsOpen(initHidden ? false : window.innerWidth > 1050);
+      }
     };
     window.addEventListener('resize', handleResize, true);
   }, []);
@@ -232,7 +234,7 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
                     </li>
                     <li>
                       <Governance />
-                      <a href='http://community.airdao.io/' target='_blank'>
+                      <a href='https://community.airdao.io/' target='_blank'>
                         Governance
                       </a>
                     </li>

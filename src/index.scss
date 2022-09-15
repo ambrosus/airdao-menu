@@ -32,6 +32,7 @@
   margin-left: 16px;
   width: 320px;
   z-index: 1000;
+  max-height: -webkit-fill-available;
   @media only screen and (max-width: 428px) {
     width: 100%;
   }
@@ -65,8 +66,13 @@
     height: fit-content !important;
     width: 100%;
     overflow-y: scroll;
+
     @media only screen and (max-width: 720px) {
       max-height: 100vh;
+    }
+
+    @media only screen and (max-width: 428px) {
+      padding-bottom: 100px!important;
     }
   }
 
