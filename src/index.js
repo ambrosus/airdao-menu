@@ -164,7 +164,7 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
                         }
                       >
                         Staking
-                        <Question />
+                        {/*<Question />*/}
                       </a>
                     </li>
                     <li>
@@ -176,9 +176,9 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
                         }
                       >
                         Bridge
-                        <a href="https://blog.ambrosus.io/ambrosus-guide-connecting-and-transacting-via-the-amb-bridge-89f27a60b8d2" target="_blank">
-                          <Question />
-                        </a>
+                        {/*<a href="https://blog.ambrosus.io/ambrosus-guide-connecting-and-transacting-via-the-amb-bridge-89f27a60b8d2" target="_blank">*/}
+                        {/*  <Question />*/}
+                        {/*</a>*/}
                       </a>
                     </li>
                     <li>
