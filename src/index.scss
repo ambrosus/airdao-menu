@@ -397,9 +397,10 @@
   z-index: 999;
 }
 
-.side-menu__list_socials-icon--last {
+.side-menu__list_socials-item--last {
   &:hover path {
     fill: #457eff;
+    stroke: none!important;
   }
 }
 

@@ -311,7 +311,7 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
                       </a>
                     </li>
                     <li>
-                      <a href='https://blog.airdao.io/' className='side-menu__list_socials-item'>
+                      <a href='https://blog.airdao.io/' className='side-menu__list_socials-item side-menu__list_socials-item--last'>
                         <Circles className='side-menu__list_socials-icon--last' />
                       </a>
                     </li>
