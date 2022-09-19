@@ -12,8 +12,6 @@ import { Copy } from './assets/Copy';
 import { Logout } from './assets/Logout';
 import { House } from './assets/House';
 import { Docs } from './assets/Docs';
-import { Message } from './assets/Message';
-import { Book } from './assets/Book';
 import { Smile } from './assets/Smile';
 import { Wallet } from './assets/Wallet';
 import { ArrowUp } from './assets/ArrowUp';
@@ -21,6 +19,7 @@ import { ArrowDown } from './assets/ArrowDown';
 import { Governance } from './assets/Governance';
 import { Help } from './assets/Help';
 import { Feedback } from './assets/Feedback';
+import { Hat } from './assets/Hat';
 import './index.scss';
 import {Check} from './assets/Check';
 
@@ -276,12 +275,22 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
                     </li>
 
                     <li>
-                      <Smile />
+                      <Hat />
                       <a
                         href='https://air-dao.notion.site/AirDAO-Academy-2c253d49da1e4717a5e5bbab696afd45'
                         target='_blank'
                       >
                         AirDAO Academy
+                      </a>
+                    </li>
+
+                    <li>
+                      <Smile />
+                      <a
+                          href='https://air-dao.notion.site/AirDAO-Team-Partners-eb62c2a89c8d491baf7463916853db62'
+                          target='_blank'
+                      >
+                        AirDAO Team
                       </a>
                     </li>
                   </ul>
