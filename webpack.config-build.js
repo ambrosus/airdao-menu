@@ -1,6 +1,9 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const {CleanWebpackPlugin} = require("clean-webpack-plugin");
+const webpack = require("webpack");
+
+require('dotenv').config();
 
 module.exports = {
   mode: "production",
@@ -34,7 +37,10 @@ module.exports = {
       template: "./src/index.html",
       favicon: "./public/favicon.ico"
     }),
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin(),
+    new webpack.DefinePlugin({
+      "process.env.REACT_APP_PRISMIC_ACCESS_TOKEN": JSON.stringify(process.env.REACT_APP_PRISMIC_ACCESS_TOKEN)
+    })
   ],
   devServer: {
     port: 3001,
