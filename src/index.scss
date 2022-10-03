@@ -58,14 +58,12 @@
   box-sizing: border-box;
   height: 64px;
   transition: 0.3s;
-  padding-right: 14px;
   overflow: hidden;
 
   &_expanded {
     max-height: calc(100vh - 32px);
     height: fit-content !important;
     width: 100%;
-    overflow-y: scroll;
 
     @media only screen and (max-width: 720px) {
       max-height: 100vh;
@@ -121,7 +119,6 @@
   border-radius: 16px;
 
   color: #3568dd !important;
-  width: 100%;
   padding: 0 18px;
   height: 58px;
 
@@ -145,7 +142,7 @@
 }
 
 .side-menu__content-list {
-  margin: 24px 0 28px 0;
+  margin-bottom: 28px;
 }
 .side-menu__list {
   display: flex;
@@ -340,6 +337,8 @@
   align-items: center;
   border-radius: 15px;
   margin-top: 30px;
+  box-sizing: border-box;
+
   span {
     font-family: sans-serif;
   }
@@ -414,4 +413,11 @@
   &:hover circle {
     fill: #457eff;
   }
+}
+
+.side-menu__nav-wrapper {
+  overflow: auto;
+  max-height: calc(100vh - 214px);
+  margin-top: 24px;
+  padding-right: 10px;
 }
