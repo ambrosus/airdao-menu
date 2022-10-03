@@ -170,7 +170,7 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
                                     }
                                 >
                                   {name}
-                                  { guide_link.type !== 'Any' ?
+                                  { guide_link.url &&
                                       (
                                           <a
                                               href={guide_link.url}
@@ -178,7 +178,7 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
                                           >
                                             <Question />
                                           </a>
-                                      ) : null
+                                      )
                                   }
 
                                 </a>
