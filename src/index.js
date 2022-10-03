@@ -156,52 +156,53 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
                     Connect wallet
                   </button>
                 )}
-                <div className='side-menu__content-list'>
-                  <ul className='side-menu__list'>
-                    {
-                      data?.links.map( ({name, link, guide_link, isdisabled}) => !isdisabled ?
-                          (
-                              <li>
-                                <a
-                                    className='side-menu__list-link'
-                                    href={link.url}
-                                    style={
-                                      currentApp === link.link_type ? { color: '#457EFF' } : {}
+                <div className="side-menu__nav-wrapper">
+                  <div className='side-menu__content-list'>
+                    <ul className='side-menu__list'>
+                      {
+                        data?.links.map( ({name, link, guide_link, isdisabled}) => !isdisabled ?
+                            (
+                                <li>
+                                  <a
+                                      className='side-menu__list-link'
+                                      href={link.url}
+                                      style={
+                                        currentApp === link.link_type ? { color: '#457EFF' } : {}
+                                      }
+                                  >
+                                    {name}
+                                    { guide_link.url &&
+                                        (
+                                            <a
+                                                href={guide_link.url}
+                                                target={guide_link.target}
+                                            >
+                                              <Question />
+                                            </a>
+                                        )
                                     }
-                                >
-                                  {name}
-                                  { guide_link.url &&
-                                      (
-                                          <a
-                                              href={guide_link.url}
-                                              target={guide_link.target}
-                                          >
-                                            <Question />
-                                          </a>
-                                      )
-                                  }
 
-                                </a>
-                              </li>
-                          ) :
-                          (
-                              <li className='side-menu__list-vote'>
-                                <span>{name}</span>
-                                <span>Coming Soon</span>
-                              </li>
-                          )
-                      )
-                    }
-                  </ul>
-                </div>
+                                  </a>
+                                </li>
+                            ) :
+                            (
+                                <li className='side-menu__list-vote'>
+                                  <span>{name}</span>
+                                  <span>Coming Soon</span>
+                                </li>
+                            )
+                        )
+                      }
+                    </ul>
+                  </div>
 
-                {
-                  data?.body.map(submenu => (
-                      <Submenu submenu={submenu} />
-                  ))
-                }
+                  {
+                    data?.body.map(submenu => (
+                        <Submenu submenu={submenu} />
+                    ))
+                  }
 
-                <div>
+                  <div>
                   <ul className=' side-menu__list_socials'>
                     {
                       data?.socials.map(({icon, link}) => (
@@ -217,6 +218,7 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
                       ))
                     }
                   </ul>
+                </div>
                 </div>
               </div>
             </>
