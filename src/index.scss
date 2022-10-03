@@ -46,14 +46,14 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 16px 24px 24px 24px;
+  padding: 16px 24px;
 
   width: 100%;
   z-index: 999999;
 
   background: #ffffff;
   box-shadow: 0 8px 32px rgba(105, 142, 226, 0.24);
-  border-radius: 8px;
+  border-radius: 0 0 16px 0;
   font-family: Inter, sans-serif;
   box-sizing: border-box;
   height: 64px;
@@ -316,7 +316,7 @@
   align-items: center;
   justify-content: center;
   border: 0;
-
+  padding: 0;
   cursor: pointer;
   background: #fff;
 }
