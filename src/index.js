@@ -164,11 +164,10 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
                             (
                                 <li>
                                   <a
-                                      className='side-menu__list-link'
-                                      href={link.url}
-                                      style={
-                                        currentApp === link.link_type ? { color: '#457EFF' } : {}
-                                      }
+                                    className={
+                                      `side-menu__list-link${currentApp === link.link_type ? 'side-menu__list-link_active' : ''}`
+                                    }
+                                    href={link.url}
                                   >
                                     {name}
                                     { guide_link.url &&
