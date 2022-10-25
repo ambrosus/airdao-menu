@@ -60,11 +60,15 @@
   transition: 0.3s;
   overflow: hidden;
 
+  @media only screen and (max-width: 428px) {
+    border-radius: 0;
+  }
+
   &_expanded {
     max-height: calc(100vh - 32px);
     height: fit-content !important;
     width: 100%;
-
+    border-radius: 8px;
     @media only screen and (max-width: 720px) {
       max-height: 100vh;
     }
