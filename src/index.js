@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { LogoNew } from './assets/LogoNew';
 import { Logo } from './assets/Logo';
 import { Menu } from './assets/Menu';
 import { Close } from './assets/Close';
 import { Question } from './assets/Question';
+import { LearnMoreBtn } from './assets/LearnMoreBtn';
 import { Metamask } from './assets/Metamask';
 import { Copy } from './assets/Copy';
 import { Logout } from './assets/Logout';
@@ -10,11 +12,11 @@ import { Wallet } from './assets/Wallet';
 import { ArrowUp } from './assets/ArrowUp';
 import { ArrowDown } from './assets/ArrowDown';
 import './index.scss';
-import {Check} from './assets/Check';
-import {usePrismicPageData} from "./usePrismicPageData";
-import {PrismicProvider} from "@prismicio/react";
-import {client} from "./prismic";
-import {PrismicText} from "@prismicio/react";
+import { Check } from './assets/Check';
+import { usePrismicPageData } from './usePrismicPageData';
+import { PrismicProvider } from '@prismicio/react';
+import { client } from './prismic';
+import { PrismicText } from '@prismicio/react';
 
 // eslint-disable-next-line react/prop-types
 const AddressBlock = ({ address = '', logout }) => {
@@ -53,41 +55,39 @@ const AddressBlock = ({ address = '', logout }) => {
   );
 };
 
-const Submenu = ({submenu}) => {
-
+const Submenu = ({ submenu }) => {
   const [isOpen, setIsOpen] = useState(true);
 
-  return <div className='side-menu__listmenu'>
-    <button
+  return (
+    <div className='side-menu__listmenu'>
+      <button
         className='side-menu__listmenu-wrapper '
         onClick={() => setIsOpen((prev) => !prev)}
-    >
-      <div className='side-menu__listmenu-text'>
-        <PrismicText field={submenu?.primary.heading} />
-      </div>
-      <div className='side-menu__listmenu-btn'>
-        {isOpen ? <ArrowUp /> : <ArrowDown />}
-      </div>
-    </button>
+      >
+        <div className='side-menu__listmenu-text'>
+          <PrismicText field={submenu?.primary.heading} />
+        </div>
+        <div className='side-menu__listmenu-btn'>
+          {isOpen ? <ArrowUp /> : <ArrowDown />}
+        </div>
+      </button>
 
-    <ul
+      <ul
         className='side-menu__list side-menu__list_small'
         style={{ display: isOpen ? '' : 'none' }}
-    >
-      {
-        submenu?.items.map(({icon, name, link}) => (
-            <li>
-              <img src={icon.url} alt={icon.alt} />
-              <a href={link.url} target={link.target}>
-                {name}
-              </a>
-            </li>
-        ))
-      }
-    </ul>
-  </div>
-
-}
+      >
+        {submenu?.items.map(({ icon, name, link }) => (
+          <li>
+            <img src={icon.url} alt={icon.alt} />
+            <a href={link.url} target={link.target}>
+              {name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
 
 const Header = ({ address, login, logout, initHidden, customLogo }) => {
   const [isOpen, setIsOpen] = useState(
@@ -99,7 +99,7 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
   useEffect(() => {
     const handleResize = () => {
       setIsOpen(initHidden ? false : window.innerWidth > 1050);
-      setOverlayVisible(false)
+      setOverlayVisible(false);
     };
     window.addEventListener('resize', handleResize, true);
   }, []);
@@ -131,7 +131,14 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
         <div className={`side-menu${isOpen ? ' side-menu_expanded' : ''}`}>
           <div className='side-menu__mobile-wrapper'>
             <div className='side-menu__logo'>
-              <a href='https://airdao.io/'>{customLogo || <Logo />}</a>
+              <a href='https://airdao.io/'>
+                {customLogo || (
+                  <>
+                    <LogoNew />
+                    {/* <Logo /> */}
+                  </>
+                )}
+              </a>
             </div>
             <button
               type='button'
@@ -147,77 +154,81 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
                 {address ? (
                   <AddressBlock address={address} logout={logout} />
                 ) : (
-                  <button
-                    type='button'
-                    className='side-menu__connect-wallet'
-                    onClick={login}
-                  >
-                    <Wallet />
-                    Connect wallet
-                  </button>
+                  <>
+                    <button
+                      type='button'
+                      className='side-menu__connect-wallet'
+                      onClick={login}
+                    >
+                      <Wallet />
+                      Connect wallet
+                    </button>
+
+                    <div className='side-menu__connect-text'>
+                      Your AirDAO experience will be limited without connecting
+                    </div>
+                  </>
                 )}
-                <div className="side-menu__nav-wrapper">
+                <div className='side-menu__nav-wrapper'>
                   <div className='side-menu__content-list'>
                     <ul className='side-menu__list'>
-                      {
-                        data?.links.map( ({name, link, guide_link, isdisabled}) => !isdisabled ?
-                            (
-                                <li>
+                      {data?.links.map(
+                        ({ name, link, guide_link, isdisabled }) =>
+                          !isdisabled ? (
+                            <li>
+                              <a
+                                className={`side-menu__list-link${
+                                  currentApp === link.link_type
+                                    ? 'side-menu__list-link_active'
+                                    : ''
+                                }`}
+                                href={link.url}
+                              >
+                                {name}
+                                {guide_link.url && (
                                   <a
-                                    className={
-                                      `side-menu__list-link${currentApp === link.link_type ? 'side-menu__list-link_active' : ''}`
-                                    }
-                                    href={link.url}
+                                    href={guide_link.url}
+                                    target={guide_link.target}
                                   >
-                                    {name}
-                                    { guide_link.url &&
-                                        (
-                                            <a
-                                                href={guide_link.url}
-                                                target={guide_link.target}
-                                            >
-                                              <Question />
-                                            </a>
-                                        )
-                                    }
-
+                                    <LearnMoreBtn />
+                                    {/* <Question /> */}
                                   </a>
-                                </li>
-                            ) :
-                            (
-                                <li className='side-menu__list-vote'>
-                                  <span>{name}</span>
-                                  <span>Coming Soon</span>
-                                </li>
-                            )
-                        )
-                      }
+                                )}
+                              </a>
+                            </li>
+                          ) : (
+                            <li className='side-menu__list-vote'>
+                              <span>{name}</span>
+                              <span>Coming Soon</span>
+                            </li>
+                          )
+                      )}
                     </ul>
                   </div>
 
-                  {
-                    data?.body.map(submenu => (
-                        <Submenu submenu={submenu} />
-                    ))
-                  }
+                  {data?.body.map((submenu) => (
+                    <Submenu submenu={submenu} />
+                  ))}
 
                   <div>
-                  <ul className=' side-menu__list_socials'>
-                    {
-                      data?.socials.map(({icon, link}) => (
-                          <li>
-                            <a
-                                href={link.url}
-                                target={link.target}
-                                className='side-menu__list_socials-item'
-                            >
-                              <img src={icon.url} alt={icon.alt} className='side-menu__list_socials-icon' />
-                            </a>
-                          </li>
-                      ))
-                    }
-                  </ul>
-                </div>
+                    <ul className=' side-menu__list_socials filter-green'>
+                      {data?.socials.map(({ icon, link }) => (
+                        <li>
+                          <a
+                            href={link.url}
+                            target={link.target}
+                            className='side-menu__list_socials-item'
+                          >
+                            <img
+                              src={icon.url}
+                              alt={icon.alt}
+                              className='side-menu__list_socials-icon'
+                            />
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
             </>
@@ -228,4 +239,9 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
   );
 };
 
-export default (props) => <PrismicProvider client={client}> <Header {...props} /> </PrismicProvider>;
+export default (props) => (
+  <PrismicProvider client={client}>
+    {' '}
+    <Header {...props} />{' '}
+  </PrismicProvider>
+);
