@@ -134,8 +134,7 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
               <a href='https://airdao.io/'>
                 {customLogo || (
                   <>
-                    <LogoNew />
-                    {/* <Logo /> */}
+                     <Logo />
                   </>
                 )}
               </a>
