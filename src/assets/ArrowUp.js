@@ -11,7 +11,7 @@ export const ArrowUp = () => (
     <path
       d='M13 8.02991L7 2.02991L1 8.02991'
       stroke='#1D1D1D'
-      stroke-width='1.5'
+      strokeWidth='1.5'
     />
   </svg>
 );

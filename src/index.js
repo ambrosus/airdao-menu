@@ -77,7 +77,7 @@ const Submenu = ({ submenu }) => {
         style={{ display: isOpen ? '' : 'none' }}
       >
         {submenu?.items.map(({ icon, name, link }) => (
-          <li>
+          <li key={name}>
             <img src={icon.url} alt={icon.alt} />
             <a href={link.url} target={link.target}>
               {name}
@@ -109,21 +109,21 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
     setIsOpen((state) => !state);
   };
 
-  const { pathname } = window.location;
+  const { href } = window.location;
   let currentApp = '';
 
-  if (pathname.includes('staking')) {
+  if (href.includes('staking')) {
     currentApp = 'staking';
-  } else if (pathname.includes('explorer')) {
+  } else if (href.includes('explorer')) {
     currentApp = 'explorer';
-  } else if (pathname.includes('firepot')) {
+  } else if (href.includes('firepot')) {
     currentApp = 'firepot';
-  } else if (pathname.includes('bridge')) {
+  } else if (href.includes('bridge')) {
     currentApp = 'bridge';
   }
 
   const data = usePrismicPageData('menu');
-
+  console.log(data);
   return (
     <>
       {overlayVisible && <div onClick={handleOpen} className='menu-overlay' />}
@@ -174,29 +174,28 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
                       {data?.links.map(
                         ({ name, link, guide_link, isdisabled }) =>
                           !isdisabled ? (
-                            <li>
+                            <li key={name}>
                               <a
                                 className={`side-menu__list-link${
-                                  currentApp === link.link_type
+                                  currentApp === link.type
                                     ? 'side-menu__list-link_active'
                                     : ''
                                 }`}
                                 href={link.url}
                               >
                                 {name}
-                                {guide_link.url && (
+                                {guide_link.url && currentApp === link.type && (
                                   <a
                                     href={guide_link.url}
                                     target={guide_link.target}
                                   >
                                     <LearnMoreBtn />
-                                    {/* <Question /> */}
                                   </a>
                                 )}
                               </a>
                             </li>
                           ) : (
-                            <li className='side-menu__list-vote'>
+                            <li key={name} className='side-menu__list-vote'>
                               <span>{name}</span>
                               <span>Coming Soon</span>
                             </li>
@@ -206,13 +205,13 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
                   </div>
 
                   {data?.body.map((submenu) => (
-                    <Submenu submenu={submenu} />
+                    <Submenu key={submenu?.id} submenu={submenu} />
                   ))}
 
                   <div>
                     <ul className=' side-menu__list_socials filter-green'>
                       {data?.socials.map(({ icon, link }) => (
-                        <li>
+                        <li key={link.url}>
                           <a
                             href={link.url}
                             target={link.target}

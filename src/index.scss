@@ -35,8 +35,6 @@
   max-height: -webkit-fill-available;
   @media only screen and (max-width: 428px) {
     width: 100%;
-  }
-  @media only screen and (max-width: 720px) {
     padding: 0;
     margin-left: 0;
   }
@@ -309,6 +307,10 @@
   color: #457eff;
   border: 1px solid #457eff;
   border-radius: 8px;
+
+  &:hover {
+    opacity: 70%;
+  }
 }
 
 .side-menu__list-vote {
@@ -468,3 +470,4 @@
   margin-top: 24px;
   padding-right: 10px;
 }
+
