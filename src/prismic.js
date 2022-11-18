@@ -24,6 +24,14 @@ export const client = prismic.createClient(repositoryName, {
 		{
 			type: 'explorer',
 			path: '/explorer',
+		},
+		{
+			type: 'team',
+			path: '/team'
+		},
+		{
+			type: 'binance',
+			path: '/binance'
 		}
 	],
 })
