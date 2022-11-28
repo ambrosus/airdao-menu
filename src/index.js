@@ -56,7 +56,7 @@ const AddressBlock = ({ address = '', logout }) => {
 };
 
 const Submenu = ({ submenu }) => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className='side-menu__listmenu'>
