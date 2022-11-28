@@ -78,8 +78,8 @@ const Submenu = ({ submenu }) => {
       >
         {submenu?.items.map(({ icon, name, link }) => (
           <li key={name}>
-            <img src={icon.url} alt={icon.alt} />
             <a href={link.url} target={link.target}>
+              <img src={icon.url} alt={icon.alt} />
               {name}
             </a>
           </li>
