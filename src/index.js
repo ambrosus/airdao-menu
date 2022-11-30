@@ -98,8 +98,10 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsOpen(initHidden ? false : window.innerWidth > 1050);
-      setOverlayVisible(false);
+      if (window.innerWidth > 430) {
+        setIsOpen(initHidden ? false : window.innerWidth > 1050);
+        setOverlayVisible(false);
+      }
     };
     window.addEventListener('resize', handleResize, true);
   }, []);
@@ -123,7 +125,7 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
   }
 
   const data = usePrismicPageData('menu');
-  console.log(data);
+
   return (
     <>
       {overlayVisible && <div onClick={handleOpen} className='menu-overlay' />}
