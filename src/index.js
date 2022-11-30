@@ -78,7 +78,11 @@ const Submenu = ({ submenu }) => {
       >
         {submenu?.items.map(({ icon, name, link }) => (
           <li key={name}>
-            <a href={link.url} target={link.target}>
+            <a
+              href={link.url}
+              target={link.target}
+              rel={(name === 'Home' || name === 'Team') ? '' : 'nofollow'}
+            >
               <img src={icon.url} alt={icon.alt} />
               {name}
             </a>
@@ -125,7 +129,7 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
   }
 
   const data = usePrismicPageData('menu');
-
+  console.log(data);
   return (
     <>
       {overlayVisible && <div onClick={handleOpen} className='menu-overlay' />}
@@ -215,6 +219,7 @@ const Header = ({ address, login, logout, initHidden, customLogo }) => {
                       {data?.socials.map(({ icon, link }) => (
                         <li key={link.url}>
                           <a
+                            rel="nofollow"
                             href={link.url}
                             target={link.target}
                             className='side-menu__list_socials-item'
